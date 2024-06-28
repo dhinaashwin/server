@@ -57,7 +57,7 @@ app.post('/create-dress', async (req, res) => {
         res.status(400).send({ message: 'Error creating dress', error });
     }
 });
-const PORT = 3002;
+const PORT = 'https://server-sigma-pearl.vercel.app/' || 3002;
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 });
