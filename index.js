@@ -57,7 +57,16 @@ app.post('/create-dress', async (req, res) => {
         res.status(400).send({ message: 'Error creating dress', error });
     }
 });
+app.get('/get-dresses', async (req, res) => {
+    try {
+        const dresses = await Dress.find();
+        res.status(200).send(dresses);
+    } catch (error) {
+        console.error(error); // Log the error
+        res.status(400).send({ message: 'Error fetching dresses', error });
+    }
+});
 const PORT = 3002;
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`);
+    console.log(`Server running in http://localhost:${PORT}/`);
 });
